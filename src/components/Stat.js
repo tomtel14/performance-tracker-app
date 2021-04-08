@@ -4,9 +4,11 @@ const Stat = ({ title, result }) => {
 
 
   return (
-    <div>
-      <h3>{title}</h3>
-      <div className="stat stat--win">{result}</div>
+    <div className="stat-item">
+      <h5>{title}</h5>
+      <div className="stat">
+        <p>{result}</p>
+      </div>
     </div>
   )
 }

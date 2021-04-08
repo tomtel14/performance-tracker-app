@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Title from './components/Title';
 import Add from './components/Add';
 import Table from './components/Table';
+import ClubSelection from './components/ClubSelection';
 import Stats from './components/Stats';
 import { data } from './data';
 
 function App() {
 
-  const [entry, setEntry] = useState({ opposition: '', location: '', goalsScored: 0, goalsConceded: 0, rating: 0 });
+  const [entry, setEntry] = useState({ club: '', opposition: '', location: '', goalsScored: 0, goalsConceded: 0, rating: 0 });
   const [entries, setEntries] = useState(data); // change to empty array for blank slate
   const [showModal, setShowModal] = useState(false);
+  const [filterClub, setFilterClub] = useState('All');
+  const [displayedEntries, setDisplayedEntries] = useState(entries);
+
+  useEffect(() => {
+    let filteredEntries = filterClub === 'All' ? entries : [...entries.filter(entry => entry.club === filterClub)];
+    setDisplayedEntries(filteredEntries);
+  }, [filterClub, entries])
+
+  const handleClubChange = (e) => {
+    let club = e.target.value;
+    setFilterClub(club);
+  }
 
   const handleStringChange = (e) => {
     const name = e.target.name;
@@ -28,16 +41,21 @@ function App() {
     e.preventDefault();
     const newEntry = { ...entry, id: new Date().getTime() }
     setEntries([...entries, newEntry]);
-    setEntry({ opposition: '', location: '', goalsScored: 0, goalsConceded: 0, rating: 0 })
+    setEntry({ club: '', opposition: '', goals: 0, assists: 0, goalsScored: 0, goalsConceded: 0, rating: 0 })
     closeModal();
   }
 
   const closeModal = () => {
-    setShowModal(false)
+    setShowModal(false);
+    setEntry({ club: '', opposition: '', goals: 0, assists: 0, goalsScored: 0, goalsConceded: 0, rating: 0 });
   }
 
   const openModal = () => {
     setShowModal(true);
+  }
+
+  const delLineItem = (id) => {
+    setEntries([...entries.filter(entry => entry.id !== id)])
   }
 
 
@@ -54,8 +72,9 @@ function App() {
         showModal={showModal}
       />
       <div className="table-stats-cont">
-        <Table entries={entries} />
-        <Stats entries={entries} />
+        <Stats entries={displayedEntries} />
+        <ClubSelection handleClubChange={handleClubChange} filterClub={filterClub} />
+        <Table entries={displayedEntries} delLineItem={delLineItem} />
       </div>
     </div>
   );

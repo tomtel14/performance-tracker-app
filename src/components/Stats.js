@@ -13,7 +13,6 @@ const Stats = ({ entries }) => {
     return numOfWins;
   }
 
-
   const calculateWinPercentage = () => {
     let wins = countsWins();
     if (entries.length === 0) {
@@ -36,11 +35,61 @@ const Stats = ({ entries }) => {
     }
   }
 
+  const calculateTotalGoals = () => {
+    let sumGoals = 0;
+    if (entries.length === 0) {
+      return null;
+    } else {
+      for (let index = 0; index < entries.length; index++) {
+        sumGoals += entries[index].goals;
+      }
+      return sumGoals;
+    }
+  }
+
+  const calculateGoalsPerGame = () => {
+    let goals = calculateTotalGoals();
+    if (entries.length === 0) {
+      return null;
+    } else {
+      return (goals / entries.length).toFixed(2)
+    }
+
+  }
+
+  const calculateTotalAssists = () => {
+    let sumAssists = 0;
+    if (entries.length === 0) {
+      return null;
+    } else {
+      for (let index = 0; index < entries.length; index++) {
+        sumAssists += entries[index].assists;
+      }
+      return sumAssists;
+    }
+  }
+
+  const calculateAssistsPerGame = () => {
+    let assists = calculateTotalAssists();
+    if (entries.length === 0) {
+      return null;
+    } else {
+      return (assists / entries.length).toFixed(2)
+    }
+  }
+
+
 
   return (
     <div className="stats-cont">
-      <Stat title="Win Percentage" result={calculateWinPercentage()} />
-      <Stat title="Avg. Rating" result={calculateAvgRating()} />
+      <div className="stats-cont-grid">
+        <Stat title="Win Percent" result={calculateWinPercentage()} />
+        <Stat title="Total Goals" result={calculateTotalGoals()} />
+        <Stat title="Total Assists" result={calculateTotalAssists()} />
+        <Stat title="Avg. Rating" result={calculateAvgRating()} />
+        <Stat title="Goals/Game" result={calculateGoalsPerGame()} />
+        <Stat title="Assists/Game" result={calculateAssistsPerGame()} />
+      </div>
     </div>
   )
 }

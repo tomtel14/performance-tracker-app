@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 button {
   font-size: 100%;
   font-family: inherit;
@@ -13,6 +17,11 @@ button {
 
 .button-cont {
   text-align: center;
+  padding-bottom: 20px;
+}
+
+.button-cont h4 {
+  padding-bottom: 5px;
 }
 
 .add {
@@ -25,43 +34,84 @@ button {
 }
 
 .app {
-  width: 80%;
+  width: 100%;
   background-color: orange;
   margin: 0 auto;
-  padding: 30px;
-  border-radius: 15px;
+  padding: 10px;
+  height: 100vh;
 }
 
 h1 {
   text-align: center;
+  padding: 25px 0;
 }
 
 .table-stats-cont {
   display: flex;
+  flex-direction: column;
 }
 
 .table {
   display: grid;
-  width: 70%;
   background-color: aqua;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(20, 1fr);
+  grid-template-columns: 1.8fr 2fr 2fr 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 8px 0px;
+  padding: 10px;
+}
+
+.del-col {
+  visibility: hidden;
+}
+
+.remove {
+  background-color: transparent;
+  font-size: 25px;
+  display: grid;
+  place-items: center;
+}
+
+.club-selection {
+  background-color: red;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.club-selection select {
+  height: 40px;
+  width: 100px;
+}
+
+label h3 {
+  display: inline;
 }
 
 .stats-cont {
-  width: 30%;
+  padding: 10px;
   background-color: yellow;
   text-align: center;
 }
 
+.stats-cont-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
 .stat {
   background-color: green;
-  display: inline-block;
-  width: 100px;
-  height: 100px;
+  display: grid;
+  align-items: center;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  line-height: 100px;
-  font-size: 50px;
+  font-size: 25px;
+}
+
+.stat-item {
+  display: grid;
+  justify-content: center;
+  place-items: center;
 }
 
 .modal-bg {
@@ -86,7 +136,7 @@ h1 {
 
 .form-cont {
   background-color: pink;
-  width: 70%;
+  width: 90%;
   padding: 20px;
   text-align: center;
   border-radius: 10px;
@@ -102,7 +152,7 @@ h1 {
   display: block;
   margin: 0 auto;
   margin-top: 5px;
-  width: 40%;
+  width: 70%;
   border-radius: 10px;
   outline: none;
   border: none;
