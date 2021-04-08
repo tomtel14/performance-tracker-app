@@ -9,11 +9,28 @@ import { data } from './data';
 
 function App() {
 
-  const [entry, setEntry] = useState({ club: '', opposition: '', location: '', goalsScored: 0, goalsConceded: 0, rating: 0 });
+  const [entry, setEntry] = useState({ club: '', opposition: '', goalsScored: 0, goalsConceded: 0, goals: 0, assists: 0, rating: 0 });
   const [entries, setEntries] = useState(data); // change to empty array for blank slate
   const [showModal, setShowModal] = useState(false);
   const [filterClub, setFilterClub] = useState('All');
   const [displayedEntries, setDisplayedEntries] = useState(entries);
+  const [desktopMode, setDesktopMode] = useState(false);
+
+  const showText = () => {
+    if (window.innerWidth > 800) {
+      setDesktopMode(true);
+    } else {
+      setDesktopMode(false)
+    }
+  }
+
+  useEffect(() => {
+    showText();
+    window.addEventListener('resize', showText)
+    return () => {
+      window.removeEventListener('resize', showText)
+    }
+  }, [])
 
   useEffect(() => {
     let filteredEntries = filterClub === 'All' ? entries : [...entries.filter(entry => entry.club === filterClub)];
@@ -61,20 +78,22 @@ function App() {
 
   return (
     <div className="app">
-      <Title />
-      <Add
-        entry={entry}
-        handleStringChange={handleStringChange}
-        handleNumChange={handleNumChange}
-        handleSubmit={handleSubmit}
-        closeModal={closeModal}
-        openModal={openModal}
-        showModal={showModal}
-      />
-      <div className="table-stats-cont">
-        <Stats entries={displayedEntries} />
-        <ClubSelection handleClubChange={handleClubChange} filterClub={filterClub} />
-        <Table entries={displayedEntries} delLineItem={delLineItem} />
+      <div className="app-cont">
+        <Title />
+        <Add
+          entry={entry}
+          handleStringChange={handleStringChange}
+          handleNumChange={handleNumChange}
+          handleSubmit={handleSubmit}
+          closeModal={closeModal}
+          openModal={openModal}
+          showModal={showModal}
+        />
+        <div className="table-stats-cont">
+          <Stats entries={displayedEntries} />
+          <ClubSelection handleClubChange={handleClubChange} filterClub={filterClub} />
+          <Table entries={displayedEntries} delLineItem={delLineItem} desktopMode={desktopMode} />
+        </div>
       </div>
     </div>
   );

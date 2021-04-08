@@ -54,7 +54,6 @@ const Stats = ({ entries }) => {
     } else {
       return (goals / entries.length).toFixed(2)
     }
-
   }
 
   const calculateTotalAssists = () => {
@@ -77,7 +76,6 @@ const Stats = ({ entries }) => {
       return (assists / entries.length).toFixed(2)
     }
   }
-
 
 
   return (

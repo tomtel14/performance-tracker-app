@@ -2,7 +2,7 @@ import React from 'react';
 
 const Title = () => {
   return (
-    <h1>Performance Tracker</h1>
+    <h1>Personal Performance Tracker</h1>
   );
 }
 

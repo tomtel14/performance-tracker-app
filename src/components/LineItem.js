@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaTimesCircle } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
+import Icon from './Icon';
 
 const LineItem = ({ entry, delLineItem }) => {
 
@@ -15,7 +16,7 @@ const LineItem = ({ entry, delLineItem }) => {
 
   return (
     <>
-      <p>{determineResult()}</p>
+      <Icon determineResult={determineResult} />
       <p>{entry.goalsScored} - {entry.goalsConceded}</p>
       <p>{entry.club}</p>
       <p>{entry.opposition}</p>
@@ -23,7 +24,7 @@ const LineItem = ({ entry, delLineItem }) => {
       <p>{entry.assists}</p>
       <p>{entry.rating}</p>
       <button className="remove" onClick={() => delLineItem(entry.id)}>
-        <FaTimesCircle />
+        <FaTrash size={18} />
       </button>
     </>
   );
