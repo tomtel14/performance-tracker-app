@@ -124,7 +124,13 @@ label h3 {
   display: grid;
   grid-template-columns: 1.6fr 2.2fr 2.1fr 2.1fr 1fr 1fr 1fr 1fr;
   align-items: center;
-  background: repeating-linear-gradient(#ddd 5px 30px,#fff 30px 60px);
+  background-image: repeating-linear-gradient(
+    180deg,
+    #ddd,
+    #ddd 30px,
+    #fff 0px,
+    #fff 60px
+  );
   padding-left: 10px;
 }
 
