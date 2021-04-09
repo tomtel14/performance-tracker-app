@@ -122,7 +122,6 @@ label h3 {
 
 .table {
   display: grid;
-  background-color: aqua;
   grid-template-columns: 1.6fr 2.2fr 2.1fr 2.1fr 1fr 1fr 1fr 1fr;
   align-items: center;
   background: repeating-linear-gradient(#ddd 0 30px,#fff 30px 60px);
