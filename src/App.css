@@ -48,7 +48,7 @@ h1 {
   display: block;
   width: 100%;
   height: auto;
-  opacity: 0.6;
+  opacity: 0.4;
 } 
 
 .add-cont {
@@ -211,11 +211,10 @@ h1 {
 
 .form-cont {
   position: relative;
-  background-color: rgb(105, 4, 4);
   color: rgb(230, 230, 230);
   width: 90%;
   max-width: 600px;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
   border-radius: 10px;
   background-image: linear-gradient(rgba(114, 0, 0, 0.7),rgba(66, 0, 0, 0.9)), url(/src/images/ball.jpg);
@@ -224,13 +223,16 @@ h1 {
 }
 
 .form-cont h2 {
-  padding-bottom: 25px;
   font-size: 1.3em;
+  padding: 10px 0;
+  margin-bottom: 15px;
+  background-color: rgb(105, 4, 4);
+  border-radius: 10px;
 }
 
 .close-btn-cont {
   position: absolute;
-  top: 12px;
+  top: 16px;
   right: 12px;
 }
 
@@ -266,8 +268,9 @@ h1 {
 }
 
 .submit-btn {
-  background-color: rgb(179, 179, 179);
-  color: #000;
+  color: #fff;
+  background-color: rgb(102, 102, 102);
+  border: 1px solid #fff;
   display: block;
   margin: 0 auto;
   margin-top: 15px;
@@ -313,9 +316,8 @@ h1 {
     overflow-y: initial;
   }
   .submit-btn:hover {
-    color: #fff;
-    background-color: rgb(102, 102, 102);
-    border: 1px solid #fff;
+    background-color: rgb(179, 179, 179);
+    color: #000; 
   }
   .close:hover {
     color: rgb(153, 153, 153);

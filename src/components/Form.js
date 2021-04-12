@@ -11,7 +11,7 @@ const Form = ({ entry, handleStringChange, handleNumChange, handleSubmit }) => {
           maxLength="4"
           name="club"
           className="form-control"
-          placeholder="Enter name of your team"
+          placeholder="Enter your team initials"
           required
           value={entry.club}
           onChange={handleStringChange}
@@ -24,7 +24,7 @@ const Form = ({ entry, handleStringChange, handleNumChange, handleSubmit }) => {
           maxLength="4"
           name="opposition"
           className="form-control"
-          placeholder="Enter name of opposition"
+          placeholder="Enter opposition initials"
           required
           value={entry.opposition}
           onChange={handleStringChange}
