@@ -22,39 +22,56 @@ body {
   padding: 10px;
   min-height: 100vh;
   max-width: 800px;
-  margin: 0 auto;
 }
 
 .app-cont {
   max-width: 800px;
-  margin: 0 auto;
 }
 
 h1 {
   text-align: center;
   font-size: 1.4em;
-  padding: 15px;
-  background-color: rgb(100, 100, 100);
+  padding: 20px 0;
+  background-color: rgb(105, 4, 4);
   color: rgb(243, 243, 243);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .button-cont {
   text-align: center;
-  color: #fff;
-  padding: 20px 0;
+  margin: 8px 0;
+  position: relative;
 }
 
-.button-cont h4 {
+.bg-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.6;
+} 
+
+.add-cont {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: rgb(243, 243, 243);
+}
+
+.add-cont h4 {
   padding-bottom: 5px;
 }
 
 .add {
-  color: #fff;
+  color: rgb(243, 243, 243);
   border-radius: 50%;
-  height: 60px;
-  width: 60px;
   background-color: transparent;
   cursor: pointer;
+  height: 60px;
+  width: 60px;
+  transition: all 0.1s linear;
 }
 
 .table-stats-cont {
@@ -64,7 +81,7 @@ h1 {
 
 .stats-cont {
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   background-color: rgb(199, 199, 199);
   text-align: center;
 }
@@ -103,21 +120,21 @@ h1 {
   color: rgb(255, 255, 255);
   text-align: center;
   padding: 15px 0;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+}
+
+.club-selection label h4 {
+  display: inline;
 }
 
 .club-selection select {
-  background-color: #fff;
+  background-color: rgb(243, 243, 243);
   margin-left: 10px;
-  height: 40px;
+  height: 35px;
   width: 100px;
   border-radius: 5px;
   cursor: pointer;
   padding-left: 5px;
-}
-
-label h3 {
-  display: inline;
 }
 
 .table {
@@ -127,15 +144,17 @@ label h3 {
   background-image: repeating-linear-gradient(
     180deg,
     #ddd,
-    #ddd 30px,
+    #ddd 35px,
     #fff 0px,
-    #fff 60px
+    #fff 70px
   );
   padding-left: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .table > * {
-  height: 30px;
+  height: 35px;
   display: grid;
   align-items: center;
 }
@@ -151,6 +170,7 @@ label h3 {
   display: grid;
   place-items: center;
   cursor: pointer;
+  transition: all 0.2s linear;
 }
 
 .icon {
@@ -164,11 +184,11 @@ label h3 {
 }
 
 .icon--green {
-  background-color: green;
+  background-color: rgb(0, 95, 0);
 }
 
 .icon--red {
-  background-color: red;
+  background-color: rgb(177, 0, 0);
 }
 
 .icon--black {
@@ -180,30 +200,43 @@ label h3 {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.9);
   width: 100%;
   height: 100%;
   z-index: 1000;
   display: grid;
   place-items: center;
+  overflow-y: scroll;
 }
 
 .form-cont {
+  position: relative;
   background-color: rgb(105, 4, 4);
   color: rgb(230, 230, 230);
   width: 90%;
   max-width: 600px;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
   border-radius: 10px;
+  background-image: linear-gradient(rgba(114, 0, 0, 0.7),rgba(66, 0, 0, 0.9)), url(/src/images/ball.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.form-cont h2 {
+  padding-bottom: 25px;
+  font-size: 1.3em;
 }
 
 .close-btn-cont {
-  text-align: right;
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
 
 .close {
   cursor: pointer;
+  transition: all 0.1s linear;
 }
 
 .form-group {
@@ -211,8 +244,12 @@ label h3 {
   text-align: center;
 }
 
+.form-group label {
+  font-size: 14px;
+}
+
 .form-control {
-  height: 40px;
+  height: 37px;
   display: block;
   margin: 0 auto;
   margin-top: 5px;
@@ -229,22 +266,30 @@ label h3 {
 }
 
 .submit-btn {
+  background-color: rgb(179, 179, 179);
+  color: #000;
   display: block;
   margin: 0 auto;
-  margin-top: 25px;
+  margin-top: 15px;
   width: 60%;
   max-width: 200px;
   height: 40px;
   padding: 5px;
   border-radius: 10px;
   cursor: pointer;
+  transition: 0.1s all linear;
 }
 
 @media (min-width: 801px) {
   .app {
-    border-radius: 6px;
+    border-radius: 10px;
     margin: 20px auto;
     padding: 15px;
+    box-shadow: 0px 0px 18px -4px #000000;
+  }
+  h1 {
+    font-size: 1.7em;
+    letter-spacing: 1.2px;
   }
   .stats-cont {
     padding: 15px;
@@ -254,5 +299,25 @@ label h3 {
   }
   .table {
     grid-template-columns: 1fr 1fr 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+  }
+  .remove:hover {
+    transform: scale(1.2);
+  }
+  .add-cont h4 {
+    padding-bottom: 10px;
+  }
+  .add:hover {
+    transform: scale(1.2);
+  }
+  .modal-bg {
+    overflow-y: initial;
+  }
+  .submit-btn:hover {
+    color: #fff;
+    background-color: rgb(102, 102, 102);
+    border: 1px solid #fff;
+  }
+  .close:hover {
+    color: rgb(153, 153, 153);
   }
 }

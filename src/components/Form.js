@@ -5,31 +5,33 @@ const Form = ({ entry, handleStringChange, handleNumChange, handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <label htmlFor="club">Club Playing For:</label>
+        <label htmlFor="club">My Team:</label>
         <input
           type="text"
+          maxLength="4"
           name="club"
           className="form-control"
-          placeholder="Enter the name of the club"
+          placeholder="Enter name of your team"
           required
           value={entry.club}
           onChange={handleStringChange}
         />
       </div>
       <div className="form-group">
-        <label htmlFor="opposition">Opposition:</label>
+        <label htmlFor="opposition">Opposition Team:</label>
         <input
           type="text"
+          maxLength="4"
           name="opposition"
           className="form-control"
-          placeholder="Enter the name of opposition"
+          placeholder="Enter name of opposition"
           required
           value={entry.opposition}
           onChange={handleStringChange}
         />
       </div>
       <div className="form-group">
-        <label htmlFor="goals-scored">Team Goals Scored:</label>
+        <label htmlFor="goals-scored">My Team Goals Scored:</label>
         <input
           type="number"
           name="goalsScored"
@@ -42,7 +44,7 @@ const Form = ({ entry, handleStringChange, handleNumChange, handleSubmit }) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="goals-conceded">Team Goals Conceded:</label>
+        <label htmlFor="goals-conceded">My Team Goals Conceded:</label>
         <input
           type="number"
           name="goalsConceded"
@@ -55,7 +57,7 @@ const Form = ({ entry, handleStringChange, handleNumChange, handleSubmit }) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="goals">Indivdual Goals Scored:</label>
+        <label htmlFor="goals">Number of Goals I Scored:</label>
         <input
           type="number"
           name="goals"
@@ -68,7 +70,7 @@ const Form = ({ entry, handleStringChange, handleNumChange, handleSubmit }) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="assists">Individual Assists:</label>
+        <label htmlFor="assists">Number of Goals I Assisted:</label>
         <input
           type="number"
           name="assists"
@@ -81,7 +83,7 @@ const Form = ({ entry, handleStringChange, handleNumChange, handleSubmit }) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="player-rating">Performance Rating:</label>
+        <label htmlFor="player-rating">My Performance Rating (0-10):</label>
         <input
           type="number"
           name="rating"

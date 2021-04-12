@@ -6,6 +6,7 @@ const Modal = ({ closeModal, entry, handleStringChange, handleNumChange, handleS
   return (
     <div className="modal-bg">
       <div className="form-cont">
+        <h2>Match Data Entry</h2>
         <div className="close-btn-cont">
           <FaTimes onClick={closeModal} size={30} className="close" />
         </div>

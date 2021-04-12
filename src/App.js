@@ -72,7 +72,10 @@ function App() {
   }
 
   const delLineItem = (id) => {
-    setEntries([...entries.filter(entry => entry.id !== id)])
+    let answer = window.confirm('Are you sure you want to delete this line item?');
+    if (answer) {
+      setEntries([...entries.filter(entry => entry.id !== id)])
+    }
   }
 
 
