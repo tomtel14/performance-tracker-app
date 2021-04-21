@@ -8,7 +8,7 @@ const Modal = ({ closeModal, entry, handleStringChange, handleNumChange, handleS
       <div className="form-cont">
         <h2>Match Data Entry</h2>
         <div className="close-btn-cont">
-          <FaTimes onClick={closeModal} size={30} className="close" />
+          <FaTimes onClick={closeModal} size={22} className="close" />
         </div>
         <Form entry={entry} handleStringChange={handleStringChange} handleNumChange={handleNumChange} handleSubmit={handleSubmit} />
       </div>
